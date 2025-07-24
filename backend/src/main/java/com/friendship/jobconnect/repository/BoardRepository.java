@@ -1,0 +1,7 @@
+package com.friendship.jobconnect.repository;
+
+import com.friendship.jobconnect.entity.Board;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BoardRepository extends JpaRepository<Board, Integer> {
+}
