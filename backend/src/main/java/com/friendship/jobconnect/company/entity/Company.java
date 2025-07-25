@@ -1,4 +1,4 @@
-package com.friendship.jobconnect.entity;
+package com.friendship.jobconnect.company.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class Company {
     @Column(nullable = false)
     private String pw;
 
-    @Column(name = "company_number", nullable = false)
+    @Column(name = "company_name", nullable = false)
     private String companyName;
 
     @Column(name = "ceo_name", nullable = false)

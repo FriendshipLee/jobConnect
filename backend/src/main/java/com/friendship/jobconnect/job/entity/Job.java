@@ -1,4 +1,4 @@
-package com.friendship.jobconnect.entity;
+package com.friendship.jobconnect.job.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,5 +1,7 @@
-package com.friendship.jobconnect.entity;
+package com.friendship.jobconnect.reply.entity;
 
+import com.friendship.jobconnect.board.entity.Board;
+import com.friendship.jobconnect.user.entity.Users;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

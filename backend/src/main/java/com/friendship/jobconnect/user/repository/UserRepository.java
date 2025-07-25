@@ -1,11 +1,10 @@
-package com.friendship.jobconnect.repository;
+package com.friendship.jobconnect.user.repository;
 
-import com.friendship.jobconnect.entity.Users;
+import com.friendship.jobconnect.user.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
 public interface UserRepository extends JpaRepository<Users, String> {
+
 }

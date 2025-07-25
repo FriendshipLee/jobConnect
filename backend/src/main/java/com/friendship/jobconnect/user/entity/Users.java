@@ -1,7 +1,9 @@
-package com.friendship.jobconnect.entity;
+package com.friendship.jobconnect.user.entity;
 
+import com.friendship.jobconnect.board.entity.Board;
+import com.friendship.jobconnect.reply.entity.Reply;
+import com.friendship.jobconnect.resume.entity.Resume;
 import jakarta.persistence.*;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
@@ -67,7 +68,7 @@ public class Users {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Board> boards;
 
-    @OneToMany(mappedBy = "users_id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "uuid", cascade = CascadeType.ALL)
     private List<Resume> resumes;
 
     @OneToMany(mappedBy = "rauthor", cascade = CascadeType.ALL)

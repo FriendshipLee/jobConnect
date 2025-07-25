@@ -1,5 +1,7 @@
-package com.friendship.jobconnect.entity;
+package com.friendship.jobconnect.resume.entity;
 
+import com.friendship.jobconnect.career.entity.Career;
+import com.friendship.jobconnect.user.entity.Users;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,8 +32,8 @@ public class Resume {
     private String enterDate;
 
     @ManyToOne
-    @JoinColumn(name = "users_id", referencedColumnName = "id")
-    private Users usersId;
+    @JoinColumn(name = "uuid")
+    private Users uuid;
 
     @OneToMany(mappedBy = "rno", cascade = CascadeType.ALL)
     private List<Career> careers;

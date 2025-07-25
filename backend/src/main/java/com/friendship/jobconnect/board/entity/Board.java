@@ -1,5 +1,7 @@
-package com.friendship.jobconnect.entity;
+package com.friendship.jobconnect.board.entity;
 
+import com.friendship.jobconnect.reply.entity.Reply;
+import com.friendship.jobconnect.user.entity.Users;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,42 +10,23 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "gonggo")
-public class Gonggo {
+@Table(name = "board")
+public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int gno;
+    private Integer bno;
 
     @Column(nullable = false)
     private String title;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
-
-    @Column(nullable = false)
-    private String author;
-
-    @Column(nullable = false, columnDefinition = "INT DEFAULT 0")
-    private Integer career;
-    // 0:무관, 1:신입, 2:경력
-
-    @Column(nullable = false, columnDefinition = "INT DEFAULT 0")
-    private Integer education;
-    // 0:무관, 1:초대졸, 2:대졸, 3:석사, 4:박사
-
-    @Column(nullable = false)
-    private String address;
-
-    @Column
-    private String deadline;
-
-    @Column(columnDefinition = "TEXT")
-    private String link;
 
     @CreationTimestamp
     @Column(name = "create_date", nullable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -56,8 +39,14 @@ public class Gonggo {
     @Column(name = "delete_date", columnDefinition = "TIMESTAMP")
     private Timestamp deleteDate;
 
-    @Column(name = "gonggo_type", nullable = false, columnDefinition = "INT DEFAULT 1")
-    private Integer gonggoType;
-    // 1:일반공고, 99:삭제공고
+    @Column(name = "board_type", columnDefinition = "INT DEFAULT 0")
+    private Integer boardType;
+    // 0:일반글, 99:삭제글
 
+    @ManyToOne
+    @JoinColumn(name = "author", referencedColumnName = "id")
+    private Users author;
+
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
+    private List<Reply> replies;
 }
